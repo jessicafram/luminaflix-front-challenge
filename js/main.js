@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         initSearch();
         initHamburger();
         initBackToTop();
+        window.initSettings();
     });
 });
 

@@ -111,3 +111,23 @@
         font-size: 3.5rem;
     }
 }
+
+@media (max-width: 768px) {
+    .settings-panel {
+        top: 78px;
+        right: 14px;
+        left: 14px;
+        width: auto;
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .settings-panel__title {
+        font-size: 0.95rem;
+    }
+
+    .settings-option {
+        padding: 11px 12px;
+        font-size: 0.88rem;
+    }
+}
