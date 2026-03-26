@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Verificar se há perfil selecionado
+    const selectedProfile = localStorage.getItem('selectedProfile');
+    if (!selectedProfile) {
+        // Redirecionar para login
+        window.location.href = 'login.html';
+        return;
+    }
+
     loadFavorites();
 
     initSplash(() => {
@@ -12,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderTop3();
         initSearch();
         initHamburger();
+        initBackToTop();
     });
 });
 
@@ -32,3 +41,36 @@ function initHamburger() {
         });
     });
 }
+
+// Back to Top Button
+function initBackToTop() {
+    const backToTopBtn = document.getElementById("back-to-top");
+    if (!backToTopBtn) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add("visible");
+        } else {
+            backToTopBtn.classList.remove("visible");
+        }
+    });
+
+    // Smooth scroll to top
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+// Logout function
+function logout() {
+    if (confirm('Tem certeza que deseja sair da conta?')) {
+        localStorage.removeItem('selectedProfile');
+        localStorage.removeItem('favorites');
+        window.location.href = 'login.html';
+    }
+}
+

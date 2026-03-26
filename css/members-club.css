@@ -1,0 +1,308 @@
+/* ============================================================
+   MEMBERS CLUB SECTION
+============================================================ */
+
+.members-club {
+    position: relative;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.08) 0%, rgba(229, 9, 20, 0.02) 100%);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-border-soft);
+    margin-bottom: var(--section-gap);
+    overflow: hidden;
+}
+
+.members-club::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(229, 9, 20, 0.1), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.members-club__header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.members-club__badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(229, 9, 20, 0.15);
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    border-radius: var(--radius-full);
+    color: var(--color-red);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.members-club__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: var(--font-weight-black);
+    color: var(--color-white);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.members-club__subtitle {
+    font-size: 1.1rem;
+    color: var(--color-zinc-300);
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.members-club__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.member-card {
+    position: relative;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-soft);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(229, 9, 20, 0.1) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    pointer-events: none;
+}
+
+.member-card:hover {
+    border-color: rgba(229, 9, 20, 0.4);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(229, 9, 20, 0.2);
+}
+
+.member-card:hover::before {
+    opacity: 1;
+}
+
+.member-card.is-featured {
+    border-color: var(--color-red);
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.15), rgba(229, 9, 20, 0.05));
+    transform: scale(1.05);
+}
+
+.member-card.is-featured::after {
+    content: '✦ Mais Popular';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--color-red);
+    color: var(--color-white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.member-card__header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.5rem;
+}
+
+.member-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: rgba(229, 9, 20, 0.15);
+    color: var(--color-red);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.member-card__name {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-black);
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.member-card__price {
+    font-size: 2rem;
+    font-weight: var(--font-weight-black);
+    color: var(--color-red);
+}
+
+.member-card__price-period {
+    font-size: 0.9rem;
+    color: var(--color-zinc-400);
+    font-weight: 500;
+}
+
+.member-card__features {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    margin: 2rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border-soft);
+}
+
+.member-card__feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    color: var(--color-zinc-300);
+    font-size: 0.95rem;
+}
+
+.member-card__feature::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    background: rgba(229, 9, 20, 0.2);
+    border-radius: 50%;
+    color: var(--color-red);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.member-card__cta {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    margin-top: 2rem;
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    border-radius: var(--radius-md);
+    background: rgba(229, 9, 20, 0.1);
+    color: var(--color-white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.member-card.is-featured .member-card__cta {
+    background: var(--color-red);
+    border-color: var(--color-red);
+    box-shadow: 0 8px 24px rgba(229, 9, 20, 0.4);
+}
+
+.member-card:hover .member-card__cta {
+    transform: translateY(-2px);
+}
+
+.member-card__cta:hover {
+    background: var(--color-red-hover);
+    border-color: var(--color-red-hover);
+    box-shadow: 0 12px 32px rgba(229, 9, 20, 0.5);
+}
+
+.members-club__footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border-soft);
+    color: var(--color-zinc-400);
+    font-size: 0.95rem;
+}
+
+.members-club__footer strong {
+    color: var(--color-white);
+}
+
+/* ============================================================
+   RESPONSIVE ADJUSTMENTS
+============================================================ */
+
+@media (max-width: 768px) {
+    .members-club {
+        padding: 2.5rem 1rem;
+    }
+
+    .members-club__title {
+        font-size: 1.75rem;
+    }
+
+    .members-club__grid {
+        gap: 1rem;
+    }
+
+    .member-card {
+        padding: 1.5rem;
+    }
+
+    .member-card.is-featured {
+        transform: scale(1);
+    }
+
+    .member-card__header {
+        margin-bottom: 1rem;
+    }
+
+    .member-card__features {
+        margin: 1.5rem 0;
+        padding-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .members-club {
+        padding: 2rem 1rem;
+    }
+
+    .members-club__badge {
+        font-size: 0.7rem;
+    }
+
+    .members-club__title {
+        font-size: 1.5rem;
+    }
+
+    .members-club__subtitle {
+        font-size: 0.95rem;
+    }
+
+    .member-card__name {
+        font-size: 1.25rem;
+    }
+
+    .member-card__price {
+        font-size: 1.75rem;
+    }
+
+    .member-card__feature {
+        font-size: 0.9rem;
+    }
+}

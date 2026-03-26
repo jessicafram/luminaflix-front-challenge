@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuminaFlix - Continuar Assistindo</title>
+    <meta name="description" content="Continue assistindo seus filmes favoritos no LuminaFlix">
+    <link rel="icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <!-- SPLASH SCREEN -->
+    <div id="splash" class="splash-screen">
+        <div class="splash-content">
+            <div class="logo-container">
+                <div class="logo">L F</div>
+                <div class="logo-text">LUMINAFLIX</div>
+            </div>
+            <div class="splash-loader">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN CHECK SCRIPT -->
+    <script>
+        // Verificar se há perfil selecionado, senão redirecionar para login
+        const selectedProfile = localStorage.getItem('selectedProfile');
+        if (!selectedProfile) {
+            window.location.href = 'login.html';
+        }
+    </script>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo">L F</div>
+                <div class="logo-text">LUMINAFLIX</div>
+            </div>
+
+            <nav class="main-nav">
+                <a href="index.html">Início</a>
+                <a href="#favorites">Favoritos</a>
+                <a href="#ranking">Top 10</a>
+                <a href="#members" class="nav-members">
+                    <span>Club</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"
+                        aria-hidden="true">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                </a>
+                <a href="progress.html" class="active">Continuar</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-container">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input id="search-input" class="search-input" type="search" placeholder="Buscar..."
+                        aria-label="Buscar conteúdo" autocomplete="off" />
+                </div>
+
+                <button id="profile-btn" class="profile-btn" aria-label="Perfil do usuário">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </button>
+
+                <button class="icon-btn" onclick="logout()" aria-label="Sair" title="Sair da conta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                        <polyline points="16,17 21,12 16,7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                </button>
+
+                <button class="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="progress-page">
+        <section class="progress-section">
+            <div class="section-header">
+                <h1 class="section-title">Continuar Assistindo</h1>
+                <p class="section-subtitle">Retome de onde parou nos seus filmes favoritos</p>
+            </div>
+
+            <div class="progress-grid" id="progress-grid">
+                <!-- Filmes em progresso serão renderizados aqui -->
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>LuminaFlix</h3>
+                <p>Experiência de streaming premium com interface cinematográfica.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12.017 0C8.396 0 7.996.014 6.79.067 5.59.12 4.694.265 3.954.52c-.806.277-1.488.642-2.126 1.28C.642 2.438.277 3.12 0 3.926c-.255.74-.4 1.636-.453 2.836C-.014 7.996 0 8.396 0 12.017s-.014 4.021-.067 5.227c-.053 1.21-.198 2.106-.453 2.846-.277.806-.642 1.488-1.28 2.126-.638.638-1.32 1.003-2.126 1.28-.74.255-1.636.4-2.836.453C3.996 23.986 4.396 24 8.017 24s4.021-.014 5.227-.067c1.21-.053 2.106-.198 2.846-.453.806-.277 1.488-.642 2.126-1.28.638-.638 1.003-1.32 1.28-2.126.255-.74.4-1.636.453-2.836.053-1.21.067-2.61.067-6.231s.014-4.021.067-5.227c.053-1.21.198-2.106.453-2.846.277-.806.642-1.488 1.28-2.126.638-.638 1.32-1.003 2.126-1.28.74-.255 1.636-.4 2.836-.453C20.004.014 20.404 0 24.017 0zM12.017 5.8a6.217 6.217 0 100 12.434 6.217 6.217 0 000-12.434zm0 10.246a4.029 4.029 0 110-8.058 4.029 4.029 0 010 8.058zm6.406-11.855a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <a href="index.html">Início</a>
+                <a href="#favorites">Favoritos</a>
+                <a href="#ranking">Top 10</a>
+                <a href="#members">Members Club</a>
+                <a href="progress.html">Continuar Assistindo</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Suporte</h4>
+                <a href="#">Central de Ajuda</a>
+                <a href="#">Contato</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Plataforma</h4>
+                <a href="#">Dispositivos Compatíveis</a>
+                <a href="#">Qualidade de Vídeo</a>
+                <a href="#">Áudio</a>
+                <a href="#">Legendas</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 LuminaFlix. Todos os direitos reservados.</p>
+            <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18,15 12,9 6,15"></polyline>
+                </svg>
+            </button>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script defer src="./js/data.js"></script>
+    <script defer src="./js/progress.js"></script>
+    <script defer src="./js/profile-selector.js"></script>
+    <script defer src="./js/main.js"></script>
+    <script defer src="./js/splash.js"></script>
+</body>
+
+</html>

@@ -1,19 +1,10 @@
 .container {
-    width: min(100% - 48px, var(--container-width));
+    width: min(100% - 48px, var(--max-width));
     margin: 0 auto;
 }
 
 .section-block {
     padding: 40px 0;
-}
-
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 30;
-    backdrop-filter: blur(18px);
-    background: rgba(5, 5, 5, 0.82);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .header-wrapper {

@@ -3,31 +3,31 @@ const BRAND_NAME = "LUMINAFLIX";
 const USERS = [
     {
         id: 1,
-        name: "Jessica",
-        role: "Admin",
-        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
-        highlight: "Curadoria Premium",
+        name: "João",
+        role: "Perfil Principal",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=João&backgroundColor=b6e3f4",
+        highlight: "Filmes Favoritos",
     },
     {
         id: 2,
-        name: "Dev Junior",
-        role: "Perfil Estudante",
-        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
-        highlight: "Trilha Front-end",
+        name: "Maria",
+        role: "Perfil Família",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria&backgroundColor=c0aede",
+        highlight: "Séries Infantis",
     },
     {
         id: 3,
-        name: "UI Lover",
-        role: "Perfil Criativo",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80",
-        highlight: "Design & Motion",
+        name: "Pedro",
+        role: "Perfil Kids",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pedro&backgroundColor=d1d4f9",
+        highlight: "Desenhos Animados",
     },
     {
         id: 4,
-        name: "Code Master",
-        role: "Perfil Maratona",
-        avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
-        highlight: "Top do Mês",
+        name: "Ana",
+        role: "Perfil Adulto",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ana&backgroundColor=ffd93d",
+        highlight: "Documentários",
     },
 ];
 
@@ -110,3 +110,9 @@ const TOP3 = [
 ];
 
 const ALL_ITEMS = SECTIONS.flatMap((s) => s.items);
+
+// Exportar dados globais para acesso dos módulos JS
+window.USERS = USERS;
+window.HERO = HERO;
+window.SECTIONS = SECTIONS;
+window.ALL_ITEMS = ALL_ITEMS;

@@ -5,12 +5,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="LuminaFlix – Uma plataforma de streaming premium com layout cinematográfico, rankings, favoritos e perfis." />
-    <title>LuminaFlix – Streaming Experience</title>
+        content="LuminaFlix – Uma plataforma de streaming premium com layout cinematográfico, rankings, favoritos, perfis e planos de membros exclusivos." />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark" />
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LuminaFlix – Streaming Experience Premium" />
+    <meta property="og:description" content="Plataforma de streaming com layout cinematográfico, rankings, favoritos e membros club." />
+    <meta property="og:locale" content="pt_BR" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LuminaFlix – Streaming Experience" />
+    <meta name="twitter:description" content="Experiência de streaming premium com interface cinematográfica." />
+    
+    <title>LuminaFlix – Streaming Experience Premium</title>
+    <link rel="canonical" href="https://luminaflix.com" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect fill='%23e50914' width='24' height='24' rx='4'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='14' font-weight='bold'>LF</text></svg>" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/variables.css" />
@@ -24,6 +40,9 @@
 </head>
 
 <body>
+
+    <!-- Skip to main content link (accessibility) -->
+    <a href="#main-sections" class="skip-to-main">Pular para conteúdo principal</a>
 
     <!-- ============================================================
        SPLASH SCREEN
@@ -49,8 +68,11 @@
             <div class="site-header__inner">
 
                 <a href="#home" class="site-logo" aria-label="LuminaFlix – Início">
-                    <p class="site-logo__title">LUMINAFLIX</p>
-                    <p class="site-logo__sub">Streaming Experience</p>
+                    <div class="site-logo__mark" aria-hidden="true">LF</div>
+                    <div class="site-logo__text">
+                        <p class="site-logo__title">LUMINAFLIX</p>
+                        <p class="site-logo__sub">Streaming Experience</p>
+                    </div>
                 </a>
 
                 <nav class="site-nav" aria-label="Navegação principal">
@@ -59,11 +81,18 @@
                     <a href="#categories">Categorias</a>
                     <a href="#favorites">Favoritos</a>
                     <a href="#ranking">Top 10</a>
+                    <a href="progress.html">Continuar</a>
+                    <a href="#members" class="nav-link-members">
+                        <span>Club</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                    </a>
                 </nav>
 
                 <div class="site-header__actions">
                     <div class="search-wrapper" role="search">
-                        <svg class="search-icon" xmlns="http://www.w3.oArg/2000/svg" viewBox="0 0 24 24" fill="none"
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             aria-hidden="true">
                             <circle cx="11" cy="11" r="8" />
@@ -74,19 +103,28 @@
                             autocomplete="off" />
                     </div>
 
-                    <button class="icon-btn" aria-label="Notificações">
+                    <button class="icon-btn" aria-label="Notificações" title="Notificações">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
                             <path d="M13.73 21a2 2 0 01-3.46 0" />
                         </svg>
                     </button>
 
-                    <button class="icon-btn" aria-label="Perfil do usuário">
+                    <button class="icon-btn" id="profile-btn" aria-label="Perfil do usuário" title="Seu perfil">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                             <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </button>
+
+                    <button class="icon-btn" id="logout-btn" onclick="logout()" aria-label="Sair" title="Sair da conta">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                            <polyline points="16,17 21,12 16,7" />
+                            <line x1="21" y1="12" x2="9" y2="12" />
                         </svg>
                     </button>
 
@@ -106,6 +144,12 @@
             <a href="#categories">Categorias</a>
             <a href="#favorites">Favoritos</a>
             <a href="#ranking">Top 10</a>
+            <a href="#members" class="mobile-menu-members">
+                <span>Club</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+            </a>
             <div class="mobile-search" role="search">
                 <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -215,6 +259,81 @@
                 </div>
             </section>
 
+            <!-- MEMBERS CLUB -->
+            <section id="members" class="members-club" aria-labelledby="members-title">
+                <div class="members-club__header">
+                    <span class="members-club__badge">Exclusivo</span>
+                    <h2 id="members-title" class="members-club__title">LuminaFlix Club</h2>
+                    <p class="members-club__subtitle">Desbloqueie benefícios exclusivos e acesso premium a todo nosso catálogo com planos personalizados para você.</p>
+                </div>
+
+                <div class="members-club__grid">
+                    <!-- Basic Plan -->
+                    <div class="member-card" role="listitem">
+                        <div class="member-card__header">
+                            <div class="member-card__icon">🎬</div>
+                            <h3 class="member-card__name">Basic</h3>
+                            <div class="member-card__price">
+                                R$ 19<span class="member-card__price-period">/mês</span>
+                            </div>
+                        </div>
+                        <ul class="member-card__features">
+                            <li class="member-card__feature">Qualidade HD</li>
+                            <li class="member-card__feature">1 dispositivo simultâneo</li>
+                            <li class="member-card__feature">Sem anúncios</li>
+                            <li class="member-card__feature">Biblioteca completa</li>
+                        </ul>
+                        <button class="member-card__cta">Começar agora</button>
+                    </div>
+
+                    <!-- Pro Plan (Featured) -->
+                    <div class="member-card is-featured" role="listitem">
+                        <div class="member-card__header">
+                            <div class="member-card__icon">⭐</div>
+                            <h3 class="member-card__name">Pro</h3>
+                            <div class="member-card__price">
+                                R$ 39<span class="member-card__price-period">/mês</span>
+                            </div>
+                        </div>
+                        <ul class="member-card__features">
+                            <li class="member-card__feature">Qualidade 4K + HDR</li>
+                            <li class="member-card__feature">4 dispositivos simultâneos</li>
+                            <li class="member-card__feature">Sem anúncios</li>
+                            <li class="member-card__feature">Conteúdo exclusivo</li>
+                            <li class="member-card__feature">Downloads offline</li>
+                        </ul>
+                        <button class="member-card__cta">Escolher plano</button>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="member-card" role="listitem">
+                        <div class="member-card__header">
+                            <div class="member-card__icon">👑</div>
+                            <h3 class="member-card__name">Premium</h3>
+                            <div class="member-card__price">
+                                R$ 59<span class="member-card__price-period">/mês</span>
+                            </div>
+                        </div>
+                        <ul class="member-card__features">
+                            <li class="member-card__feature">Qualidade 8K suprema</li>
+                            <li class="member-card__feature">Ilimitado de dispositivos</li>
+                            <li class="member-card__feature">Sem anúncios</li>
+                            <li class="member-card__feature">Conteúdo VIP + premiere</li>
+                            <li class="member-card__feature">Downloads e offline ilimitado</li>
+                            <li class="member-card__feature">Suporte 24/7 prioritário</li>
+                        </ul>
+                        <button class="member-card__cta">Ativar agora</button>
+                    </div>
+                </div>
+
+                <div class="members-club__footer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; width: 16px; height: 16px; margin-right: 0.5rem; color: var(--color-red);">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    Todos os planos incluem <strong>garantia de satisfação de 30 dias</strong>
+                </div>
+            </section>
+
             <!-- TOP 10 -->
             <section id="ranking" class="top10-section" aria-labelledby="top10-title">
                 <div class="section-row__header">
@@ -252,15 +371,76 @@
 
     </div><!-- #app -->
 
+    <!-- BACK TO TOP BUTTON -->
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo da página">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-title">LuminaFlix</h3>
+                <p class="footer-description">Plataforma de streaming premium com experiência cinematográfica.</p>
+                <div class="footer-social" aria-label="Redes sociais">
+                    <a href="#" aria-label="LuminaFlix no Facebook" title="Facebook">f</a>
+                    <a href="#" aria-label="LuminaFlix no Twitter" title="Twitter">𝕏</a>
+                    <a href="#" aria-label="LuminaFlix no Instagram" title="Instagram">📸</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#users">Usuários</a></li>
+                    <li><a href="#categories">Categorias</a></li>
+                    <li><a href="#favorites">Favoritos</a></li>
+                    <li><a href="#ranking">Top 10</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Club</h4>
+                <ul class="footer-links">
+                    <li><a href="#members">Planos de Membros</a></li>
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Suporte</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-heading">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 LuminaFlix. Todos os direitos reservados.</p>
+            <p>Desenvolvido com <span role="img" aria-label="coração">❤️</span> para uma experiência premium</p>
+        </div>
+    </footer>
+
     <!-- JS: load order matters — data first, then modules -->
-    <script src="./js/data.js"></script>
-    <script src="./js/users.js"></script>
-    <script src="./js/gallery.js"></script>
-    <script src="./js/favorites.js"></script>
-    <script src="./js/ranking.js"></script>
-    <script src="./js/search.js"></script>
-    <script src="./js/splash.js"></script>
-    <script src="./js/main.js"></script>
+    <script defer src="./js/data.js"></script>
+    <script defer src="./js/users.js"></script>
+    <script defer src="./js/gallery.js"></script>
+    <script defer src="./js/watching-now.js"></script>
+    <script defer src="./js/profile-selector.js"></script>
+    <script defer src="./js/favorites.js"></script>
+    <script defer src="./js/ranking.js"></script>
+    <script defer src="./js/search.js"></script>
+    <script defer src="./js/splash.js"></script>
+    <script defer src="./js/members-club.js"></script>
+    <script defer src="./js/main.js"></script>
 
 </body>
 

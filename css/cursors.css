@@ -1,0 +1,225 @@
+/* ============================================================
+   CUSTOM CURSORS & INTERACTIVE ELEMENTS
+============================================================ */
+
+/* Default cursor */
+html {
+    cursor: default;
+}
+
+/* Pointer cursor on interactive elements */
+button,
+a,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.icon-btn,
+.btn,
+.member-card,
+.member-card__cta,
+.profile-card,
+.media-card,
+.movie-card,
+.section-row__explore,
+.top10-item,
+.profile-highlight,
+[role="button"],
+[role="link"] {
+    cursor: pointer;
+    transition: cursor 0.1s ease;
+}
+
+/* Text cursor */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea,
+.search-input,
+.mobile-search-input {
+    cursor: text;
+}
+
+/* Disabled cursor */
+button:disabled,
+input:disabled,
+[disabled],
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Progress cursor for loading states */
+.loading,
+[aria-busy="true"] {
+    cursor: progress;
+}
+
+/* Grab cursor for draggable elements */
+[draggable="true"],
+.draggable {
+    cursor: grab;
+}
+
+[draggable="true"]:active,
+.draggable:active {
+    cursor: grabbing;
+}
+
+/* Special cursors for resize/move */
+[data-resizable],
+.resizable {
+    cursor: ns-resize;
+}
+
+/* ============================================================
+   ENHANCED HOVER STATES & VISUAL FEEDBACK
+============================================================ */
+
+/* Smooth transitions on hover */
+button,
+a,
+input[type="button"],
+.icon-btn,
+.btn,
+.member-card,
+.profile-card,
+.media-card,
+.movie-card {
+    position: relative;
+}
+
+/* Hover scale effect for buttons */
+.btn:not(:disabled):hover,
+.icon-btn:not(:disabled):hover,
+.member-card__cta:not(:disabled):hover {
+    transform: scale(1.02);
+}
+
+/* Active state (when clicked) */
+.btn:not(:disabled):active,
+.icon-btn:not(:disabled):active,
+.member-card__cta:not(:disabled):active {
+    transform: scale(0.98);
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 2px;
+}
+
+/* Hover glow effect for primary buttons */
+.btn--primary:not(:disabled):hover::after,
+.member-card.is-featured .member-card__cta:not(:disabled):hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-xl);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 0.6s ease-out;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 12px rgba(229, 9, 20, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(229, 9, 20, 0);
+    }
+}
+
+/* Link hover effect */
+a:not(.btn):not(.icon-btn):not([class*="card"]):hover {
+    color: var(--color-red);
+    text-decoration: underline;
+}
+
+/* Selection styling */
+::selection {
+    background: var(--color-red);
+    color: var(--color-white);
+}
+
+::-moz-selection {
+    background: var(--color-red);
+    color: var(--color-white);
+}
+
+/* ============================================================
+   INPUT & FORM ELEMENTS
+============================================================ */
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-zinc-500);
+    transition: color var(--transition-fast);
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+    color: var(--color-zinc-400);
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    color: var(--color-zinc-400);
+}
+
+/* Enhanced focus visibility */
+.search-input:focus,
+.mobile-search-input:focus,
+input:focus {
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+}
+
+/* ============================================================
+   ICON ANIMATION & FEEDBACK
+============================================================ */
+
+/* Icon rotation on hover */
+.icon-btn svg,
+.btn svg {
+    transition: transform var(--transition-base);
+}
+
+.icon-btn:hover svg {
+    transform: scale(1.1);
+}
+
+.btn:hover svg {
+    transform: translateX(3px);
+}
+
+/* ============================================================
+   RESPONSIVE CURSOR ADJUSTMENTS
+============================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+
+    /* Mobile devices without hover capability */
+    button,
+    a,
+    .btn,
+    .member-card,
+    .profile-card,
+    .media-card,
+    .movie-card {
+        cursor: auto;
+    }
+
+    /* Remove hover effects on touch devices */
+    button:hover,
+    a:hover,
+    .member-card:hover {
+        transform: none !important;
+    }
+}

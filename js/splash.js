@@ -20,7 +20,10 @@ function initSplash(onFinish) {
             setTimeout(() => {
                 if (cursorEl) cursorEl.style.display = "none";
                 splash.classList.add("fade-out");
-                setTimeout(onFinish, 800);
+                setTimeout(() => {
+                    // Executar callback fornecido
+                    onFinish();
+                }, 800);
             }, 1200);
         }
     }

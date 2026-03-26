@@ -1,0 +1,60 @@
+/* ============================================================
+   PROFILE BUTTON CUSTOMIZATION
+============================================================ */
+
+#profile-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+#profile-btn.has-avatar {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#profile-btn.has-avatar svg {
+    display: none;
+}
+
+#profile-btn.has-avatar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent);
+    pointer-events: none;
+    border-radius: var(--radius-lg);
+}
+
+#profile-btn.has-avatar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(229, 9, 20, 0.2), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    pointer-events: none;
+    border-radius: var(--radius-lg);
+}
+
+#profile-btn.has-avatar:hover::before {
+    opacity: 1;
+}
+
+/* Badge de usuário selecionado */
+#profile-btn.has-avatar::after {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--color-white);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+@media (hover: none) {
+    #profile-btn.has-avatar::before {
+        opacity: 0.5;
+    }
+}

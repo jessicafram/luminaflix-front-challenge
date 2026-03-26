@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuminaFlix - Escolha seu Perfil</title>
+    <meta name="description" content="Escolha seu perfil e comece a assistir no LuminaFlix">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Bebas+Neue&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/splash.css" />
+    <link rel="stylesheet" href="./css/logo.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen" class="splash-screen" role="status" aria-label="Carregando LuminaFlix">
+        <div class="splash-content">
+            <div class="logo">
+                <div class="site-logo__mark">L F</div>
+                <div class="site-logo__text">
+                    <div class="site-logo__title">LUMINAFLIX</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <main class="login-page">
+        <div class="login-container">
+            <header class="login-header">
+                <a href="#" class="site-logo">
+                    <div class="site-logo__mark">L F</div>
+                    <div class="site-logo__text">LUMINAFLIX</div>
+                </a>
+            </header>
+
+            <div class="login-content">
+                <h2 class="login-title">Quem está assistindo?</h2>
+                <p class="login-subtitle">Escolha seu perfil para continuar</p>
+                <div class="profiles-grid" id="profiles-grid">
+                    <!-- Perfis serão renderizados aqui -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="./js/data.js"></script>
+    <script src="./js/login.js"></script>
+    <script>
+        // Netflix-style splash initialization
+        function initLoginSplash() {
+            const splash = document.getElementById("splash-screen");
+
+            if (!splash) {
+                showLoginContent();
+                return;
+            }
+
+            // Simple fade-in like Netflix
+            setTimeout(() => {
+                splash.classList.add("fade-out");
+                setTimeout(() => {
+                    showLoginContent();
+                }, 800);
+            }, 2000); // Show logo for 2 seconds
+        }
+
+        function showLoginContent() {
+            // Iniciar a página de login
+            if (typeof window.initLoginPage === 'function') {
+                window.initLoginPage();
+            } else {
+                console.error('initLoginPage não está disponível');
+            }
+        }
+
+        // Iniciar splash quando DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', initLoginSplash);
+    </script>
+</body>
+
+</html>

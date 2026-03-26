@@ -1,0 +1,164 @@
+/* ============================================================
+   LUMINAFLIX LOGO STYLES
+============================================================ */
+
+.site-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 10;
+}
+
+.site-logo__mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--color-red) 0%, #ff1f2d 100%);
+    box-shadow: 0 8px 24px rgba(229, 9, 20, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    font-weight: var(--font-weight-black);
+    font-size: 1.75rem;
+    color: var(--color-white);
+    letter-spacing: -0.05em;
+    font-family: var(--font-family);
+}
+
+.site-logo__mark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+    animation: shimmer 3s infinite;
+}
+
+.site-logo:hover .site-logo__mark {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(229, 9, 20, 0.4);
+}
+
+.site-logo:active .site-logo__mark {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.3);
+}
+
+.site-logo__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-family-logo);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.site-logo__title {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-black);
+    letter-spacing: 0.25em;
+    color: var(--color-red);
+    line-height: 1;
+    transition: color var(--transition-fast);
+}
+
+.site-logo:hover .site-logo__title {
+    color: var(--color-red-hover);
+}
+
+.site-logo__sub {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: var(--color-zinc-500);
+    transition: color var(--transition-fast);
+    font-weight: 700;
+}
+
+.site-logo:hover .site-logo__sub {
+    color: var(--color-zinc-400);
+}
+
+/* ============================================================
+   LOGO ANIMATION (Shimmer Effect)
+============================================================ */
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ============================================================
+   FAVICON STYLE (if visible)
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .site-logo__mark::before {
+        animation: none;
+    }
+
+    .site-logo:hover .site-logo__mark {
+        transform: none;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE LOGO
+============================================================ */
+
+@media (max-width: 768px) {
+    .site-logo {
+        gap: 0.5rem;
+    }
+
+    .site-logo__mark {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+
+    .site-logo__title {
+        font-size: 1.25rem;
+        letter-spacing: 0.2em;
+    }
+
+    .site-logo__sub {
+        font-size: 0.55rem;
+        letter-spacing: 0.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-logo {
+        gap: 0.4rem;
+    }
+
+    .site-logo__mark {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3rem;
+    }
+
+    .site-logo__title {
+        font-size: 1.1rem;
+        letter-spacing: 0.15em;
+    }
+
+    .site-logo__sub {
+        font-size: 0.5rem;
+        letter-spacing: 0.25em;
+    }
+}

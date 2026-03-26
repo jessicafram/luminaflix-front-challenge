@@ -1,0 +1,115 @@
+/* ============================================================
+   "WATCHING NOW" / "QUEM ESTÁ ASSISTINDO" SECTION
+============================================================ */
+
+.watching-now {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 5;
+}
+
+.watching-now__avatars {
+    display: flex;
+    align-items: center;
+    gap: -8px;
+    flex-wrap: wrap;
+}
+
+.watching-now__avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    background-size: cover;
+    background-position: center;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    margin-left: -10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.watching-now__avatar:first-child {
+    margin-left: 0;
+}
+
+.watching-now__avatar:hover {
+    transform: scale(1.15);
+    z-index: 10;
+}
+
+.watching-now__text {
+    font-size: 0.75rem;
+    color: var(--color-zinc-100);
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+    margin-left: 4px;
+}
+
+.watching-now__count {
+    font-size: 0.65rem;
+    color: var(--color-zinc-300);
+    font-weight: 500;
+}
+
+/* ============================================================
+   TOOLTIP PARA AVATAR
+============================================================ */
+
+.watching-now__avatar[data-user-name]::after {
+    content: attr(data-user-name);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: rgba(0, 0, 0, 0.9);
+    color: var(--color-white);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all var(--transition-fast);
+    border: 1px solid var(--color-border);
+}
+
+.watching-now__avatar:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/* ============================================================
+   RESPONSIVE WATCHING NOW
+============================================================ */
+
+@media (max-width: 480px) {
+    .watching-now {
+        bottom: 8px;
+        left: 8px;
+        right: 8px;
+        gap: 0.25rem;
+    }
+
+    .watching-now__avatar {
+        width: 24px;
+        height: 24px;
+        border-width: 1px;
+        margin-left: -8px;
+    }
+
+    .watching-now__text {
+        font-size: 0.7rem;
+    }
+
+    .watching-now__count {
+        font-size: 0.6rem;
+    }
+}
