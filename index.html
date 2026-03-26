@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="LuminaFlix – Uma plataforma de streaming premium com layout cinematográfico, rankings, favoritos e perfis." />
+    <title>LuminaFlix – Streaming Experience</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/splash.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/hero.css" />
+    <link rel="stylesheet" href="./css/cards.css" />
+    <link rel="stylesheet" href="./css/sections.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+
+<body>
+
+    <!-- ============================================================
+       SPLASH SCREEN
+  ============================================================ -->
+    <div id="splash-screen" role="status" aria-label="Carregando LuminaFlix">
+        <div class="splash__radial"></div>
+        <div class="splash__content">
+            <p class="splash__tagline">Front-End Immersion Experience</p>
+            <h1 class="splash__brand">
+                <span id="splash-brand-text"></span><span class="splash__cursor" id="splash-cursor">|</span>
+            </h1>
+            <p class="splash__subtitle">Carregando universo de entretenimento...</p>
+        </div>
+    </div>
+
+    <!-- ============================================================
+       MAIN APP
+  ============================================================ -->
+    <div id="app">
+
+        <!-- HEADER -->
+        <header class="site-header" role="banner">
+            <div class="site-header__inner">
+
+                <a href="#home" class="site-logo" aria-label="LuminaFlix – Início">
+                    <p class="site-logo__title">LUMINAFLIX</p>
+                    <p class="site-logo__sub">Streaming Experience</p>
+                </a>
+
+                <nav class="site-nav" aria-label="Navegação principal">
+                    <a href="#home">Início</a>
+                    <a href="#users">Usuários</a>
+                    <a href="#categories">Categorias</a>
+                    <a href="#favorites">Favoritos</a>
+                    <a href="#ranking">Top 10</a>
+                </nav>
+
+                <div class="site-header__actions">
+                    <div class="search-wrapper" role="search">
+                        <svg class="search-icon" xmlns="http://www.w3.oArg/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input id="search-input" class="search-input" type="search"
+                            placeholder="Buscar filmes, séries ou gêneros" aria-label="Buscar conteúdo"
+                            autocomplete="off" />
+                    </div>
+
+                    <button class="icon-btn" aria-label="Notificações">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                            <path d="M13.73 21a2 2 0 01-3.46 0" />
+                        </svg>
+                    </button>
+
+                    <button class="icon-btn" aria-label="Perfil do usuário">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                    </button>
+
+                    <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false"
+                        aria-controls="mobile-menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- MOBILE MENU -->
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Menu mobile">
+            <a href="#home">Início</a>
+            <a href="#users">Usuários</a>
+            <a href="#categories">Categorias</a>
+            <a href="#favorites">Favoritos</a>
+            <a href="#ranking">Top 10</a>
+            <div class="mobile-search" role="search">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input id="mobile-search-input" class="mobile-search-input" type="search" placeholder="Buscar..."
+                    aria-label="Buscar conteúdo" autocomplete="off" />
+            </div>
+        </nav>
+
+        <!-- HERO BANNER -->
+        <section id="home" class="hero" aria-label="Destaque principal">
+            <div class="hero__backdrop">
+                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80"
+                    alt="Cyber Heist Reloaded backdrop" loading="eager" />
+                <div class="hero__gradient"></div>
+            </div>
+            <div class="hero__content">
+                <span class="hero__badge">Original LuminaFlix</span>
+                <h1 class="hero__title">Cyber Heist: Reloaded</h1>
+                <p class="hero__subtitle">Uma experiência cinematográfica para exibir domínio de layout, motion e
+                    componentização.</p>
+                <p class="hero__description">Um front-end de streaming com clima premium, vitrine dinâmica, rankings,
+                    favoritos, perfis e seções temáticas para transformar um exercício em peça de portfólio.</p>
+                <div class="hero__actions">
+                    <button class="btn btn--primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            aria-hidden="true">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        Assistir agora
+                    </button>
+                    <button class="btn btn--ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Mais informações
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH RESULTS (shown only while searching) -->
+        <div id="search-results-section" class="search-results-section main-content" aria-live="polite">
+            <div class="section-row__header">
+                <div class="section-row__title-group">
+                    <div class="section-row__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </div>
+                    <h2 class="section-row__title">Resultados da busca</h2>
+                </div>
+            </div>
+            <div id="search-results-grid" class="search-results-grid"></div>
+            <p id="no-results" class="no-results" style="display:none;">Nenhum resultado encontrado. Tente outro título
+                ou gênero.</p>
+        </div>
+
+        <!-- MAIN SECTIONS -->
+        <main id="main-sections" class="main-content">
+
+            <!-- PROFILES -->
+            <section id="users" class="section-row" aria-labelledby="users-title">
+                <div class="section-row__header">
+                    <div class="section-row__title-group">
+                        <div class="section-row__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                                <path d="M16 3.13a4 4 0 010 7.75" />
+                            </svg>
+                        </div>
+                        <h2 id="users-title" class="section-row__title">Perfis de usuário</h2>
+                    </div>
+                </div>
+                <div id="profiles-row" class="profiles-row" role="list" aria-label="Perfis disponíveis"></div>
+            </section>
+
+            <!-- CONTENT GALLERIES -->
+            <div id="galleries-container"></div>
+
+            <!-- FAVORITES -->
+            <section id="favorites" class="section-row" aria-labelledby="favorites-title">
+                <div class="section-row__header">
+                    <div class="section-row__title-group">
+                        <div class="section-row__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+                            </svg>
+                        </div>
+                        <h2 id="favorites-title" class="section-row__title">Meus Favoritos</h2>
+                    </div>
+                </div>
+                <div id="favorites-gallery" class="section-row__gallery" role="list" aria-label="Seus favoritos salvos">
+                </div>
+            </section>
+
+            <!-- TOP 10 -->
+            <section id="ranking" class="top10-section" aria-labelledby="top10-title">
+                <div class="section-row__header">
+                    <div class="section-row__title-group">
+                        <div class="section-row__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                <polyline points="17 6 23 6 23 12" />
+                            </svg>
+                        </div>
+                        <h2 id="top10-title" class="section-row__title">Top 10 da semana</h2>
+                    </div>
+                </div>
+                <div id="top10-list" class="top10-list" role="list" aria-label="Top 10 títulos da semana"></div>
+            </section>
+
+            <!-- TOP 3 HIGHLIGHT -->
+            <section class="top3-section" aria-labelledby="top3-title">
+                <div class="section-row__header">
+                    <div class="section-row__title-group">
+                        <div class="section-row__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zM5 20h14" />
+                            </svg>
+                        </div>
+                        <h2 id="top3-title" class="section-row__title">Top of the Top 3</h2>
+                    </div>
+                </div>
+                <div id="top3-grid" class="top3-grid" role="list" aria-label="Os 3 títulos mais destacados"></div>
+            </section>
+
+        </main>
+
+    </div><!-- #app -->
+
+    <!-- JS: load order matters — data first, then modules -->
+    <script src="./js/data.js"></script>
+    <script src="./js/users.js"></script>
+    <script src="./js/gallery.js"></script>
+    <script src="./js/favorites.js"></script>
+    <script src="./js/ranking.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/splash.js"></script>
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>

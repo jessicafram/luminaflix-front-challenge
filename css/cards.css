@@ -1,0 +1,215 @@
+.movie-card {
+    flex-shrink: 0;
+    width: 220px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardReveal 0.5s ease forwards;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+@keyframes cardReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.movie-card__thumb {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.movie-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.movie-card:hover .movie-card__thumb img {
+    transform: scale(1.06);
+}
+
+.movie-card__thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.15) 45%, transparent 100%);
+}
+
+.movie-card__genre {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-white);
+    letter-spacing: 0.04em;
+}
+
+.movie-card__rating {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(6px);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.movie-card__rating svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+}
+
+.movie-card__body {
+    padding: 0.875rem 1rem;
+}
+
+.movie-card__title {
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.5rem;
+}
+
+.movie-card__footer {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--color-zinc-400);
+}
+
+.movie-card__save {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    color: var(--color-zinc-400);
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color var(--transition-fast);
+}
+
+.movie-card__save:hover,
+.movie-card__save.saved {
+    color: var(--color-red);
+}
+
+.movie-card__save svg {
+    width: 15px;
+    height: 15px;
+    transition: fill var(--transition-fast);
+}
+
+.movie-card__save.saved svg {
+    fill: var(--color-red);
+}
+
+.movie-card__more {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-left: auto;
+    color: var(--color-red);
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: gap var(--transition-fast);
+}
+
+.movie-card__more:hover {
+    gap: 0.4rem;
+}
+
+.movie-card__more svg {
+    width: 15px;
+    height: 15px;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+    flex-shrink: 0;
+    width: 160px;
+    text-align: center;
+}
+
+.profile-card:hover {
+    border-color: var(--color-red);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(229, 9, 20, 0.18);
+}
+
+.profile-card__avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 2px solid var(--color-zinc-800);
+    transition: border-color var(--transition-base);
+}
+
+.profile-card:hover .profile-card__avatar {
+    border-color: var(--color-red);
+}
+
+.profile-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-card__name {
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+}
+
+.profile-card__role {
+    font-size: 0.72rem;
+    color: var(--color-zinc-500);
+}
+
+.profile-card__highlight {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--radius-full);
+    background: var(--color-red-dim);
+    color: var(--color-red);
+    font-weight: 600;
+}

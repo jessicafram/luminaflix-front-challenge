@@ -1,0 +1,45 @@
+@import './reset.css';
+@import './variables.css';
+@import './splash.css';
+@import './header.css';
+@import './hero.css';
+@import './cards.css';
+@import './sections.css';
+@import './responsive.css';
+
+body {
+    font-family: var(--font-family);
+    background: var(--color-bg);
+    color: var(--color-white);
+}
+
+#app {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+#app.visible {
+    opacity: 1;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-zinc-800);
+    border-radius: 6px;
+}
